@@ -20,3 +20,8 @@
 ## Validation
 
 ผ่าน syntax checks และ contract tests สำหรับ arrival assist, delivery location, step workflow, active-order lock และ atomic job claim โดยเพิ่ม assertions สำหรับ manual button, in-flight guard, null guard และ idempotent retry response
+
+
+## Live deployment verification
+
+The deployed delivery page was checked after the manual-confirmation patch. The page rendered the current order, the `ยืนยันถึงร้านด้วยตนเอง` action, the embedded Leaflet map and the active-order lock banner. Browser console inspection returned no runtime error output. The sampled order did not contain a pickup coordinate, so the arrival-specific geofence card correctly remained unavailable while the general manual step-confirmation action remained visible.
