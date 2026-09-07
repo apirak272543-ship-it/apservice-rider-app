@@ -24,6 +24,7 @@ assert.match(app, /arrival_mode: manual \? 'manual' : 'geofence'/, 'frontend ต
 assert.match(app, /arrival_location: location \|\| null/, 'frontend ต้องส่งพิกัด arrival ไป server');
 assert.match(app, /ยืนยันถึงร้านด้วยตนเอง/, 'ต้องมีปุ่ม manual confirmation ในขั้นปัจจุบัน');
 assert.match(app, /statusSaveInFlight/, 'manual confirmation ต้องกันการกดซ้ำระหว่างบันทึก');
+assert.match(app, /if \(statusSaveInFlight\) return; statusSaveInFlight = true/, 'auto และ manual confirmation ต้องใช้ guard เดียวกัน');
 assert.match(edge, /ORDER_STATUS\.ARRIVED_STORE/, 'server ต้องตรวจเฉพาะ transition ถึงร้าน');
 assert.match(edge, /distanceMeters\(arrivalLocation, order\.pickup_location\)/, 'server ต้องตรวจระยะจากพิกัดจริง');
 assert.match(edge, /ride_arrived_location/, 'server ต้องบันทึกพิกัดหรือ manual evidence');
