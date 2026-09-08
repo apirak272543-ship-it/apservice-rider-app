@@ -25,3 +25,8 @@
 ## Live deployment verification
 
 The deployed delivery page was checked after the manual-confirmation patch. The page rendered the current order, the `ยืนยันถึงร้านด้วยตนเอง` action, the embedded Leaflet map and the active-order lock banner. Browser console inspection returned no runtime error output. The sampled order did not contain a pickup coordinate, so the arrival-specific geofence card correctly remained unavailable while the general manual step-confirmation action remained visible.
+
+
+## Second live verification
+
+The deployed page after commit `2b1832d` loaded the active order and displayed the manual confirmation button in the current-step card. The embedded map loaded Leaflet tiles and the page exposed the GPS and center-map controls. The rendered page contained no runtime error message during the check; the sampled order still had no pickup coordinate, so the UI correctly showed the manual confirmation path and omitted the GPS geofence card.
